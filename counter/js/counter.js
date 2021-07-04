@@ -3,7 +3,20 @@ bot.addEventListener("click", odbroji);
 
 
 function odbroji() {
+    let elementUnosInput = document.getElementById("unos");
     let unos = document.getElementById("unos").value;
+    let rezultat = document.getElementById("rezultat");
+    if (!unos) {
+        rezultat.style.display = "none";
+        elementUnosInput.classList.add('error');
+
+    } else {
+        rezultat.style.display = "block";
+        elementUnosInput.classList.remove('error');
+        elementUnosInput.classList.add('ok');
+
+    }
+
     console.log("UNOS: " + unos);
     let inpDate = new Date(unos);
     let rodjen = inpDate;
@@ -29,12 +42,20 @@ function odbroji() {
     let godine = Math.floor(dani / 365);
     console.log("Godine " + godine);
 
+    const godinaProslo = document.getElementById("godine");
+    godinaProslo.innerHTML = "<b>Godina prošlo: </b>" + godine;
+
     const danaProslo = document.getElementById("dani");
     danaProslo.innerHTML = "<b>Dana prošlo: </b>" + dani;
 
+    const satiProslo = document.getElementById("sati");
+    satiProslo.innerHTML = "<b>Sati prošlo: </b>" + sati;
+
+    const minProslo = document.getElementById("minute");
+    minProslo.innerHTML = "<b>Minuta prošlo: </b>" + minute;
+
     const secProslo = document.getElementById("sekunde");
-    secProslo.innerHTML = "<b>Sekundi proslo: </b>" + sekunde;
+    secProslo.innerHTML = "<b>Sekundi prošlo: </b>" + sekunde;
+
+    setInterval(odbroji, 1000);
 }
-
-
-setInterval(odbroji, 1000);

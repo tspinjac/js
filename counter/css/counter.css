@@ -1,0 +1,20 @@
+/* COUNTER CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+body,
+button {
+    font-family: 'Indie Flower', cursive;
+    font-size: 24px;
+}
+
+input {
+    display: block;
+}
+
+.error {
+    outline: 2px solid red;
+}
+
+.ok {
+    background: rgb(185, 214, 185);
+}
